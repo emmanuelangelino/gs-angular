@@ -1,0 +1,49 @@
+<div class="login-container">
+  <div class="form-container">
+    <h2>Login na Gamer Shop</h2>
+    <nz-alert
+      *ngIf="error"
+      nzShowIcon
+      nzType="error"
+      [nzMessage]="error"
+      [ngStyle]="{ 'margin-bottom': '16px' }"
+    ></nz-alert>
+    <form (ngSubmit)="onSubmit()">
+      <div class="input-container">
+        <label for="email">Email</label>
+        <input
+          nz-input
+          type="email"
+          name="email"
+          placeholder="Digite seu email"
+          [(ngModel)]="email"
+        />
+      </div>
+      <div class="input-container">
+        <label for="password">Senha</label>
+        <input
+          nz-input
+          type="password"
+          name="password"
+          placeholder="Digite sua senha"
+          [(ngModel)]="password"
+        />
+      </div>
+      <div class="cta-container">
+        <button
+          nz-button
+          type="submit"
+          [disabled]="!canSubmit()"
+          [nzLoading]="loading"
+        >
+          Login
+        </button>
+        <div><a routerLink="/register">Criar uma nova conta</a></div>
+      </div>
+
+      <div class="forgot-password">
+        <a href="">Esqueceu sua senha?</a>
+      </div>
+    </form>
+  </div>
+</div>
